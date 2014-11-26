@@ -10,8 +10,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Partenaire de la tésorerie des PME">
-    <meta name="keywords" content="Trésorerie, cash, bfr, PME, LBO, Liquidation">
-    <meta name="author" content="Nabil Lakhmissi">    
+    <meta name="keywords" content="Trésorerie, cash">
+    <meta name="author" content="Nabil Lakhmissi">  
+    <meta name="Content-Langage" content="FR">    
     <link rel="shortcut icon" href="favicon.ico">  
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,400italic,500,500italic,700,700italic,900,900italic,300italic,300' rel='stylesheet' type='text/css'> 
     <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,700,300,100' rel='stylesheet' type='text/css'>
@@ -28,6 +29,7 @@
 
   <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
    <script src="http://cdn.oesmith.co.uk/morris-0.5.1.min.js"></script>
+   
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -41,7 +43,7 @@
     <header id="header" class="header">  
         <div class="container">       
             <h1 class="logo">
-                <a href="/cash"><span class="text">Alloratio</span></a>
+                <a href=""><span class="text">Alloratio</span></a>
             </h1><!--//logo-->
             <nav class="main-nav navbar-right" role="navigation">
                 <div class="navbar-header">
@@ -56,8 +58,8 @@
                     <ul class="nav navbar-nav">
                         <li class="active nav-item"><a href="#accueil">Accueil</a></li>
                         <li class="nav-item"><a href="#why">Services</a></li>
-                        <li class="nav-item"><a href="#jeu">Testez vos connaissances</a></li>
-                         <!-- <li class="nav-item dropdown">
+                         <!--  <li class="nav-item"><a href="#jeu">Testez vos connaissances</a></li>
+                       <li class="nav-item dropdown">
                           <a class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="0" data-close-others="false" href="#">Pages <i class="fa fa-angle-down"></i></a>
                             <ul class="dropdown-menu">
                                 <li><a href="#why">Download Apps</a></li>
@@ -69,7 +71,7 @@
                                 <li><a href="contact.html">Contact</a></li>                    
                             </ul>                      
                         </li>-->      <!--//dropdown-->                         
-                        <li class="nav-item nav-item-cta last"><a class="btn btn-cta btn-cta-secondary"  data-toggle="modal" data-target="#formContact" data-whatever="twbootstrap">Testez nous !</a></li>
+                        <li class="nav-item nav-item-cta last"><a class="btn btn-cta btn-cta-secondary"  data-toggle="modal" data-target="#formContact" data-whatever="twbootstrap">Contactez nous !</a></li>
                     </ul><!--//nav-->
                 </div><!--//navabr-collapse-->
             </nav>
@@ -92,14 +94,14 @@
         <div class="container text-center">                
             <h2 class="title">
             Alloratio, partenaire de la trésorerie des PME</h2> 
-            <p class="intro">
-              La gestion de la trésorerie permet de sécuriser vos futurs financements,
-            d'anticiper des difficultés de trésorerie (crise du crédit 2008...) et de réduire les coûts de financement 
-            <p><button type="button" class="btn btn-cta-primary" data-toggle="modal" data-target="#formContact" data-whatever="twbootstrap">Essayez nous !</button></p> 
+            <p class="intro" name="suivi_financier">
+            Vos partenaires financiers (banques, assureurs, clients, fournisseurs...) évaluent vos risques de trésorerie, et vous?
+          <!--  <p><button type="button" class="btn btn-cta-primary" data-toggle="modal" data-target="#formContact" data-whatever="twbootstrap">Essayez nous !</button></p> -->
             <p><button type="button" class="btn btn-cta-primary" data-toggle="modal" data-target="#analyseEntreprise" data-whatever="twbootstrap"> Evaluez votre entreprise gratuitement!</button></p> 
-            
-            <a class="btn-link " href="#jeu" data-backdrop="static" data-keyboard="false"><i class="glyphicon glyphicon-th"></i> Testez vos connaissances ! </a>
-           <!-- <button type="button" class="play-trigger btn-link " data-toggle="modal" data-target="#modal-video" data-backdrop="static" data-keyboard="false"><i class="fa fa-youtube-play"></i> Watch the video</button>-->
+            </br>
+          <!--    <q>Profits are vanity but cash is reality</q>
+           <a class="btn-link " href="#jeu" data-backdrop="static" data-keyboard="false"><i class="glyphicon glyphicon-th"></i> Testez vos connaissances ! </a>
+          <button type="button" class="play-trigger btn-link " data-toggle="modal" data-target="#modal-video" data-backdrop="static" data-keyboard="false"><i class="fa fa-youtube-play"></i> Watch the video</button>-->
         </div><!--//container-->
     </section><!--//promo-->
     <div class="modal fade" id="formContact" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -136,12 +138,12 @@
   </div>
 </div>
     
-       <div class="modal fade" id="analyseEntreprise" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+       <div name ="analyse_de_votre_entreprise" class="modal fade" id="analyseEntreprise" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-        <h4 class="modal-title" id="exampleModalLabel">Découvrez ce que vos partenaires pensent de vos finances.</h4>
+        <h4 class="modal-title" id="exampleModalLabel">Découvrez ce que vos partenaires pensent de votre trésorerie.</h4>
       </div>
       <div class="modal-body">
         <form role="form">
@@ -154,14 +156,14 @@
             <input type="text" class="form-control"  id="siren"/>
           </div>
           <div class="form-group">
-            <label for="mail" class="control-label">Votre adresse email pour réception de votre notation :</label>
-            <input type="text" class="form-control" id="mail"/>
+            <label for="mail" class="control-label">Votre adresse email : </label>
+            <input type="text" class="form-control" id="mail2"/>
           </div>
         </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
-        <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="javascript:envoyer();return false;">Envoyer !</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="javascript:eval();return false;">Envoyer !</button>
       </div>
     </div>
     <script>
@@ -170,6 +172,18 @@
         var message = $('#message').val();
        <g:remoteFunction controller = "prospect" action="envoyer" params="\'mail=\' + mail+ '&message=\' + message"/>
        }
+      function eval() {
+        var mail = $('#mail2').val();
+        var siren = $('#siren').val();
+        var societe = $('#societe').val();
+       <g:remoteFunction controller = "prospect" action="evaluationAfaire" params="\'mail=\' + mail+ '&societe=\' + societe+ '&siren=\' + siren"/>
+       }
+      function adresseMail() {
+        var mail = $('#mail3').val()
+        var message = "Nouvelle adresse mail"
+       <g:remoteFunction controller = "prospect" action="envoyer" params="\'mail=\' + mail+ '&message=\' + message"/>
+        
+      }
         </script>
   </div>
 </div>
@@ -179,16 +193,20 @@
     <div class="sections-wrapper">   
      
         <!-- ******Why Section****** -->
-        <section id="why" class="section why">
+        <section id="why" name ="amélioration"class="section why">
             <div class="container">
                 <h2 class="title text-center">Notre offre de services</h2>
                 <p class="intro text-center">Nous développons une solution de gestion et optimisation de la trésorerie des PME.
-                  </br> Gagnez du temps, de la visibilité et faites des économies !</p>
+                  </br> Gagnez du temps, de la visibilité et faites des économies !
+                </br></br>
+                
+              La gestion de la trésorerie permet de sécuriser vos futurs financements,
+            d'anticiper des difficultés de trésorerie (crise du crédit 2008...) et de réduire les coûts de financement.</p>
                 
                 
                 <div class="row item">
                     <div class="content col-md-4 col-sm-4 col-xs-4">
-                        <h3 class="title">Analyse trésorerie</h3>
+                        <h3 class="title" name="analyse_financiere">Analyse trésorerie</h3>
                         <div class="desc">
                             <p align="justify">Nos outils nous permettent d'analyser votre entreprise et votre gestion de la trésorerie.
                               Etudes dynamiques, prospectives, concurrences... Positionnez vous grâce à Alloratio.</p>
@@ -196,7 +214,7 @@
                         </div>
                     </div><!--//content-->
                     <div class="content col-md-4 col-sm-4 col-xs-4">
-                        <h3 class="title">Amélioration trésorerie</h3>
+                        <h3 class="title" name ="amelioration_continue">Amélioration trésorerie</h3>
                         <div class="desc">
                             <p align="justify">Nous analysons les axes d'amélioration de votre trésorerie et proposons les actions idoines.
                             Le chiffrage et le suivi des actions est assuré par Alloratio.</p>
@@ -205,13 +223,13 @@
                         </div>
                         <!--//quote-->                        
                     </div><!--//content-->
-                    <div class="content col-md-4 col-sm-4 col-xs-4">
+                    <div class="content col-md-4 col-sm-4 col-xs-4" name ="plan_tresorerie">
                         <h3 class="title">Anticipation</h3>
                         <div class="desc">
                             <p align="justify">Nous préparons et anticipons à vos côtés vos besoins de financement. Développer votre EBE 
-                            de demain sécurisant aujourd'hui vos futurs financements.</p>
+                            de demain en sécurisant aujourd'hui votre trésorerie.</p>
                             
-                            <p align="justify"><i class="glyphicon glyphicon-ok"></i> Objectif : améliorer votre trésorerie sur le long terme</p>
+                            <p align="justify"><i class="glyphicon glyphicon-ok"></i> Objectif : solidité financière et économique</p>
                         </div>
                         <!--//quote-->                        
                     </div>
@@ -231,7 +249,7 @@
     cursor: pointer;
 }
 </style>
-
+<!--
         
         <section id="jeu">
           <div class="container">
@@ -242,49 +260,11 @@
                 <p class="intro text-center">Testez vos connaissances en gestion de trésorerie 
                   </br> et comparez vous à vos confrères !</p>
 <div class="panel panel-default">
-	<div class="panel-heading">
-		<div class="text-center col-md-2 col-md-offset-1"><h4>Ratio d'activité</h4></div> <!-- offset to center odd number of columns -->
-		<div class="text-center col-md-2"><h4>Ratio de solvabilité</h4></div>
-		<div class="text-center col-md-2"><h4>Ratio de liquidité</h4></div>
-		<div class="text-center col-md-2"><h4>Modern</h4></div>
-		<div class="text-center col-md-2"><h4>Cas pratiques</h4></div>
-		<div class="clearfix"></div> <!-- clearfix squares the header around the headings. it basically fixes everything -->
-	</div>
-	<div class="panel-body" id="main-board">
-		<div class="category col-md-2 col-md-offset-1">
-			<div class="well question">100</div>
-			<div class="well question">200</div>
-			<div class="well question">300</div>
-			<div class="well question">400</div>
-		</div>
-		<div class="category col-md-2">
-			<div class="well question">100</div>
-			<div class="well question">200</div>
-			<div class="well question">300</div>
-			<div class="well question">400</div>
-		</div>
-		<div class="category col-md-2">
-			<div class="well question">100</div>
-			<div class="well question">200</div>
-			<div class="well question">300</div>
-			<div class="well question">400</div>
-		</div>
-		<div class="category col-md-2">
-			<div class="well question">100</div>
-			<div class="well question">200</div>
-			<div class="well question">300</div>
-			<div class="well question">400</div>
-		</div>
-		<div class="category col-md-2">
-			<div class="well question">100</div>
-			<div class="well question">200</div>
-			<div class="well question">300</div>
-			<div class="well question">400</div>
-		</div>
-	</div>
+	<div class="panel-heading"></div>
+	<div class="panel-body" id="main-board"></div>
 	<div class="panel-footer">
-		<div class="pull-right"><h4>Score: <span id="score">0</span></h4></div>
-		<div class="clearfix"></div>
+                <div class="pull-right"><h4>Score: <span id="score">0</span></h4></div>
+                <div class="clearfix"></div>
         </div>
 </div>
 <div class="modal fade" id="question-modal" role="dialog" aria-labelledby="question-modal" aria-hidden="true">
@@ -302,9 +282,9 @@
 
         </div>
       </div>
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
-</div>
+    </div><!-- /.modal-content
+  </div><!-- /.modal-dialog
+</div><!-- /.modal        
             <script>      
       $(function(){
         $.ajax({//ajax method to load the board.json and call the loadBoard() function on success 
@@ -318,7 +298,10 @@
             loadBoard();
         }
     });
+    
+    
     $('.unanswered').click(function(){//event bound to clicking on a tile. it grabs the data from the click event, populates the modal, fires the modal, and binds the answer method
+     
         var category = $(this).parent().data('category');
         var question = $(this).data('question');
         var value = map[category].questions[question].value;
@@ -391,7 +374,8 @@ function handleAnswer(){
         updateScore();
     })
 }
-      </script>
+      </script>-->
+
         </section>
 
 
@@ -404,7 +388,7 @@ function handleAnswer(){
                <p class="intro">Plus de <span class="counting">60%</span> des PME ont une trésorerie fragile. </p>
                <p class="intro"><span class="counting">100%</span> des entreprises en banqueroute ont connu une crise de trésorerie. </p>
                
-               <p><button type="button" class="btn btn-cta-primary" data-toggle="modal" data-target="#formContact" data-whatever="twbootstrap">Et vous ?</button></p>
+               <p><button type="button" class="btn btn-cta-primary" data-toggle="modal" data-target="#analyseEntreprise" data-whatever="twbootstrap">Et vous, comment va votre trésorerie ?</button></p>
             </div><!--//container-->
         </section><!--//cta-section-->
         
@@ -420,7 +404,7 @@ function handleAnswer(){
                             <h3 class="title">Sommaire</h3>
                             <ul class="list-unstyled">
                                 <li><a href="#why"><i class="fa fa-caret-right"></i>Qui sommes nous?</a></li>
-                                <li><a href="#contact"><i class="fa fa-caret-right"></i>Contactez nous !</a></li>
+                                <li><a href="#formContact"><i class="fa fa-caret-right"></i>Contactez nous !</a></li>
                             </ul>
                         </div><!--//footer-col-inner-->
                     </div><!--//foooter-col-->    
@@ -428,17 +412,16 @@ function handleAnswer(){
                         <div class="footer-col-inner">
                             <ul class="social list-inline">
                                 <li><a href="https://twitter.com/alloratio" target="_blank"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                <li><a href="#"><i class="fa fa-google-plus"></i></a></li>   
-                                <li class="row-end"><a href="#"><i class="fa fa-rss"></i></a></li>             
+                                <li><a href="https://fr.linkedin.com/pub/nabil-lakhmissi/7b/559/56/"><i class="fa fa-linkedin"></i></a></li>
+                                <li><a href="https://plus.google.com/+Alloratio"><i class="fa fa-google-plus"></i></a></li>    
                             </ul>
                             <div class="form-container">
                                 <p class="intro">Restez informé de nos nouveautés</p>
                                 <form class="signup-form navbar-form">
                                     <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Entrez votre adresse mail.">
+                                        <input type="text" id ="mail3" class="form-control" placeholder="Entrez votre adresse mail.">
                                     </div>   
-                                    <button type="submit" class="btn btn-cta btn-cta-primary"  data-toggle="modal" data-target="#formContact" data-whatever="twbootstrap">Envoyer !</button>                                 
+                                    <button type="submit" class="btn btn-cta btn-cta-primary"  data-toggle="modal" data-whatever="twbootstrap"  onclick="javascript:adresseMail();return false;">Envoyer !</button>                                 
                                 </form>                               
                             </div><!--//subscription-form-->
                         </div><!--//footer-col-inner-->
@@ -455,12 +438,14 @@ function handleAnswer(){
                                 </span>
                             </p>
                            <!-- <p class="tel"><i class="fa fa-phone"></i>0800 123 4567</p>-->
-                            <p class="email"><i class="fa fa-envelope-o"></i><a href="#">contact@alloratio.com</a></p> 
-                            <a href="https://twitter.com/3rdwave_themes" class="twitter-follow-button" data-show-count="false">Follow @3rdwave_themes</a>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>                        
+                            <p class="email"><i class="fa fa-envelope-o"></i><a href="#formContact">contact@alloratio.com</a></p> 
                         </div><!--//footer-col-inner-->
                     </div>
-
+                    <div class="footer-col contact col-md-4 col-sm-4 col-xs-4"></div>
+                    <div class="footer-col contact col-md-4 col-sm-4 col-xs-4">
+                    <a class="twitter-timeline" href="https://twitter.com/alloratio" data-widget-id="537253047089782784">Tweets de @alloratio</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+                    </div>
                 </div>
             </div><!--//container-->
         </div><!--//footer-content-->
@@ -470,23 +455,6 @@ function handleAnswer(){
             </div><!--//container-->
         </div><!--//bottom-bar-->
     </footer><!--//footer-->
-    
-    <!-- Video Modal -->
-    <div class="modal modal-video" id="modal-video" tabindex="-1" role="dialog" aria-labelledby="videoModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 id="videoModalLabel" class="modal-title sr-only">Video Tour</h4>
-                </div>
-                <div class="modal-body">
-                    <div class="video-container">
-                        <iframe src="//player.vimeo.com/video/28872840?color=ffffff&amp;wmode=transparent" width="720" height="405" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-                    </div><!--//video-container-->
-                </div><!--//modal-body-->
-            </div><!--//modal-content-->
-        </div><!--//modal-dialog-->
-    </div><!--//modal-->
     
                     
     <!-- Javascript -->          
@@ -508,6 +476,16 @@ function handleAnswer(){
     <script type="text/javascript" src="${request.contextPath}/js/amchart/morris-chart-settings.js"></script>
     
             
+   <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-52015735-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
 </body>
-</html> 
+</html>
 

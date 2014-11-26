@@ -1,6 +1,7 @@
 package contact
 
 
+import entreprises.*
 
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
@@ -16,12 +17,28 @@ class ProspectController {
     }
     
     def envoyer = {
-        println("okdans controlleur")
+        
         def message = params.message
         def mail = params.mail
         println(mail)
         def prospect = new Prospect(massage : message , mail :mail)
         prospect.save()
+    }
+    
+    def evaluationAfaire = {
+        
+        def siren = params.siren
+        def mail = params.mail
+        def societe = params.societe
+        println(mail)
+        def entreprise = new Entreprise()
+        entreprise.siren = siren
+        entreprise.nom = societe
+        entreprise.save()
+        
+        def prospect = new Prospect(entreprise : entreprise , mail :mail, message : "faire analyse financière")
+        prospect.save()
+        println(prospect)
     }
 
     def show(Prospect prospectInstance) {

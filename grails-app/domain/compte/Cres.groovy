@@ -2,31 +2,31 @@ package compte
 
 class Cres {
 
-    Float chiffreAffaires
-    Float chiffreAffairesNet
+    String chiffreAffaires
+    String chiffreAffairesNet
 
-    Float coutVentes
+    String coutVentes
 
-    Float margeBrute
+    String margeBrute
 
-    Float autresChargesExploitations
+    String autresChargesExploitations
 
-    Float resultatExploitation
+    String resultatExploitation
 
-    Float produitsFinanciers
-    Float chargesFinancieres
-    Float resultatFinancier
-    Float resultatCourantAvantImpot
+    String produitsFinanciers
+    String chargesFinancieres
+    String resultatFinancier
+    String resultatCourantAvantImpot
 
-    Float impotsTaxes
+    String impotsTaxes
 
-    Float resultatApresImpot
+    String resultatApresImpot
 
-    Float produitsExceptionnels
-    Float chargesExceptionnelles
-    Float resultatExceptionnel
+    String produitsExceptionnels
+    String chargesExceptionnelles
+    String resultatExceptionnel
 
-    Float resultat
+    String resultat
 
     
  static constraints = {

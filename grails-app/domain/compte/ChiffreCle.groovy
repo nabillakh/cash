@@ -2,14 +2,14 @@ package compte
 
 class ChiffreCle {
 
-    Float capaciteAutofinancement //    Capacité d’autofin. avant rép.
+    String capaciteAutofinancement //    Capacité d’autofin. avant rép.
 
-    Float liquiditeReduite //    Liquidité reduite (x)
-    Float performance //    Performance (%)
-    Float rendementCapitauxPropres //    Rend. des capitaux propres nets (%)
-    Float rendementCapitalInvesti //    Rend. du capital investi (%)
-    Float solvabilite //    Ratio de solvabilité (à partir de l'actif) (%)
-    Float effectifs //    Effectifs
+    String liquiditeReduite //    Liquidité reduite (x)
+    String performance //    Performance (%)
+    String rendementCapitauxPropres //    Rend. des capitaux propres nets (%)
+    String rendementCapitalInvesti //    Rend. du capital investi (%)
+    String solvabilite //    Ratio de solvabilité (à partir de l'actif) (%)
+    String effectifs //    Effectifs
 
     
     

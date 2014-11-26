@@ -4,10 +4,15 @@ package entreprises
 
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
+import grails.converters.JSON
+
+import cash.*
 
 @Transactional(readOnly = true)
 class EntrepriseController {
 
+    def pointDeVueService
+    
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
     def index(Integer max) {
@@ -104,28 +109,88 @@ class EntrepriseController {
     
     
     @Transactional
-    def vue(Entreprise entrepriseInstance) {
+    def vueFournisseur() {
+        def entrepriseInstance = Entreprise.get(params.entrepriseInstance)
+        def solvabilite = pointDeVueService.solvabilite(entrepriseInstance)
+        def capaciteInteret = pointDeVueService.capaciteInteret(entrepriseInstance)
+        def liquiditeGenerale = pointDeVueService.liquiditeGenerale(entrepriseInstance)
+        def evolutionCA = pointDeVueService.evolutionCA(entrepriseInstance)
+        def margeOperationnelle = pointDeVueService.margeOperationnelle(entrepriseInstance)
+        def rentabiliteNette = pointDeVueService.rentabiliteNette(entrepriseInstance)
         
-        Chiffre d'Affaires
- - Dont Chiffre d'Affaires réalisé avec SITA France
- - Dont Chiffre d'Affaires réalisé avec Nom_au_hasard_1
- - Dont Chiffre d'Affaires réalisé avec Nom_au_hasard_2
- - Dont Chiffre d'Affaires réalisé avec Nom_au_hasard_3
-Résultat d'exploitation
-Résultat Net
-
-Ratio de Solvabilité à partir de l'actif
-Capitaux propres
-Total de l'actif
-
-Garantie des Taux
-Résultat d'exploitation
-Intérêts payés
-
-Liquidité réduite
-Actif circulant
-Dettes à court terme
+        def liste = []
         
+        liste << solvabilite
+        liste << capaciteInteret
+        liste << liquiditeGenerale
+        liste << evolutionCA
+        liste << margeOperationnelle
+        liste << rentabiliteNette      
+        
+        [entrepriseInstance : entrepriseInstance, liste : liste]
+        // render liste2 as JSON
+    }
+    
+    def liasse() {
+        def entrepriseInstance = Entreprise.get(Long.parseLong(params.entrepriseInstance))
+        def annees = []
+        def anneeMax = 2000
+        entrepriseInstance.mesLiasses.each() { liasse ->
+            if(anneeMax < liasse.annee) {
+                anneeMax = liasse.annee
+            }
+        }
+        
+        entrepriseInstance.mesLiasses.each() { liasse ->
+            def annee = new LinkedHashMap()
+            annee.put("annee", liasse.annee)
+            if(liasse.annee == anneeMax) {
+                annee.put("actif", true)
+            }
+            else {
+                annee.put("actif", false)
+            }
+            annee.put("liasse",liasse.id)
+            annees << (annee)
+            println(annee)
+        }
+        [entrepriseInstance : entrepriseInstance, annees : annees]
+    }
+        
+    def general() {
+        println("dans general")
+        def entrepriseInstance = Entreprise.get(Long.parseLong(params.entrepriseInstance))
+        println(entrepriseInstance)
+        def nbliasse = entrepriseInstance.mesLiasses.size()
+        def liasseInstance = entrepriseInstance.mesLiasses.getAt(nbliasse-1)
+        
+        println("dans ganeral" + liasseInstance.annee)
+        
+        [entrepriseInstance : entrepriseInstance, liasseInstance : liasseInstance]
+    }
+    
+    def financier() {
+        
+        def entrepriseInstance = Entreprise.get(Long.parseLong(params.entrepriseInstance))
+        def rendementCapitauxPropres = pointDeVueService.rendementCapitauxPropres(entrepriseInstance)
+        def rendementCapitalInvesti = pointDeVueService.rendementCapitalInvesti(entrepriseInstance)
+        def performance = pointDeVueService.performance(entrepriseInstance)
+        def liquiditeReduite = pointDeVueService.liquiditeReduite(entrepriseInstance)
+        def liquidite = pointDeVueService.liquidite(entrepriseInstance)
+        def creditClient = pointDeVueService.creditClient(entrepriseInstance)
+        def liste = []
+        
+        liste << rendementCapitauxPropres  
+        liste << rendementCapitalInvesti
+        liste << performance
+        liste << liquiditeReduite
+        liste << liquidite
+        liste << creditClient
+        
+        println(liste)
+        [entrepriseInstance : entrepriseInstance, liste : liste]
+        // render liste2 as JSON
+            
     }
     
 }

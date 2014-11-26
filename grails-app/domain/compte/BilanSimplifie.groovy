@@ -3,37 +3,37 @@ package compte
 class BilanSimplifie {
    
  // Actif 
-    // Float actifImmobilise = immobilisationsIncorporelles + immobilisationsCorporelles +
+    // String actifImmobilise = immobilisationsIncorporelles + immobilisationsCorporelles +
                //  autresActifsImmobilises
     
-     Float immobilisationsIncorporelles
-     Float immobilisationsCorporelles
-     Float autresActifsImmobilises
+     String immobilisationsIncorporelles
+     String immobilisationsCorporelles
+     String autresActifsImmobilises
 
-     // Float actifCirculant = stock + creances + autresActifsCirculants // + valeursDisponibles 
-     Float stock
-     Float creances
-     Float autresActifsCirculants
-     Float valeursDisponibles // inclus dans autres actifs
+     // String actifCirculant = stock + creances + autresActifsCirculants // + valeursDisponibles 
+     String stock
+     String creances
+     String autresActifsCirculants
+     String valeursDisponibles // inclus dans autres actifs
 
-     // Float actifTotal = actifCirculant + actifImmobilise
+     // String actifTotal = actifCirculant + actifImmobilise
 
      // Passif
-    //  Float capitauxPropres = capital + autresCapitauxPropres
-     Float capital
-     Float autresCapitauxPropres  
+    //  String capitauxPropres = capital + autresCapitauxPropres
+     String capital
+     String autresCapitauxPropres  
 
-     //Float passifsNonCourants = dettesLongTerme + autresDettesLongTerme
-     Float dettesLongTerme
-     Float autresDettesLongTerme
-     Float provisionsPourRisquesCharges
+     //String passifsNonCourants = dettesLongTerme + autresDettesLongTerme
+     String dettesLongTerme
+     String autresDettesLongTerme
+     String provisionsPourRisquesCharges
 
-     //Float dettesCourtTerme = empruntsCT + fournisseurs + autresDCT
-     Float empruntsCT
-     Float fournisseurs
-     Float autresDCT
+     //String dettesCourtTerme = empruntsCT + fournisseurs + autresDCT
+     String empruntsCT
+     String fournisseurs
+     String autresDCT
 
-     // Float passifTotal = dettesCourtTerme + passifsNonCourants + capitauxPropres 
+     // String passifTotal = dettesCourtTerme + passifsNonCourants + capitauxPropres 
     
     
     static constraints = {

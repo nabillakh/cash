@@ -22,21 +22,93 @@
     <link rel="stylesheet" href="${request.contextPath}/assets/plugins/flexslider/flexslider.css">
     <!-- Theme CSS -->
     <link id="theme-style" rel="stylesheet" href="${request.contextPath}/assets/css/styles.css">
+    <link  rel="stylesheet" href="${request.contextPath}/css/rateit.css" type="text/css">
+    
+    <link rel="stylesheet" href="http://cdn.oesmith.co.uk/morris-0.5.1.css">
     
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
   <script type="text/javascript" src="${request.contextPath}/template/assets/js/jquery-ias.min.js"></script>
+  
+            <script type="text/javascript" src="http://www.amcharts.com/lib/3/amcharts.js"></script>
+<script type="text/javascript" src="http://www.amcharts.com/lib/3/gauge.js"></script>
+<script type="text/javascript" src="http://www.amcharts.com/lib/3/themes/none.js"></script>
+<script type="text/javascript" src="http://www.amcharts.com/lib/3/radar.js"></script>
 
-  <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
-   <script src="http://cdn.oesmith.co.uk/morris-0.5.1.min.js"></script>
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
     
+                              <style>
+                              #chartdiv {
+	width	: 100%;
+	height	: 500px;
+}		
+
+.bs-callout {
+    padding: 20px;
+    margin: 20px 0;
+    border: 1px solid #eee;
+    border-left-width: 5px;
+    border-radius: 3px;
+}
+.bs-callout h4 {
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+.bs-callout p:last-child {
+    margin-bottom: 0;
+}
+.bs-callout code {
+    border-radius: 3px;
+}
+.bs-callout+.bs-callout {
+    margin-top: -5px;
+}
+.bs-callout-default {
+    border-left-color: #777;
+}
+.bs-callout-default h4 {
+    color: #777;
+}
+.bs-callout-primary {
+    border-left-color: #428bca;
+}
+.bs-callout-primary h4 {
+    color: #428bca;
+}
+.bs-callout-success {
+    border-left-color: #5cb85c;
+}
+.bs-callout-success h4 {
+    color: #5cb85c;
+}
+.bs-callout-danger {
+    border-left-color: #d9534f;
+}
+.bs-callout-danger h4 {
+    color: #d9534f;
+}
+.bs-callout-warning {
+    border-left-color: #f0ad4e;
+}
+.bs-callout-warning h4 {
+    color: #f0ad4e;
+}
+.bs-callout-info {
+    border-left-color: #5bc0de;
+}
+.bs-callout-info h4 {
+    color: #5bc0de;
+}
+
+
+                              </style>
 </head> 
 
 <body class="home-page">   
+  
     <!-- ******HEADER****** --> 
     <header id="header" class="header">  
         <div class="container">       
@@ -55,20 +127,9 @@
                 <div id="navbar-collapse" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         <li class="active nav-item"><a href="#accueil">Accueil</a></li>
-                        <li class="nav-item"><a href="#why">Services</a></li>
+                        <li class="nav-item"><a href="#why" color="grey">Services</a></li>
                         <li class="nav-item"><a href="#jeu">Testez vos connaissances</a></li>
-                         <!-- <li class="nav-item dropdown">
-                          <a class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="0" data-close-others="false" href="#">Pages <i class="fa fa-angle-down"></i></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#why">Download Apps</a></li>
-                                <li><a href="blog.html">Blog</a></li>
-                                <li><a href="blog-single.html">Blog Single</a></li>
-                                <li><a href="blog-category.html">Blog Category</a></li>
-                                <li><a href="blog-archive.html">Blog Archive</a></li>
-                                <li><a href="about.html">About Us</a></li>
-                                <li><a href="contact.html">Contact</a></li>                    
-                            </ul>                      
-                        </li>-->      <!--//dropdown-->                         
+                        
                         <li class="nav-item nav-item-cta last"><a class="btn btn-cta btn-cta-secondary"  data-toggle="modal" data-target="#formContact" data-whatever="twbootstrap">Testez nous !</a></li>
                     </ul><!--//nav-->
                 </div><!--//navabr-collapse-->
@@ -78,142 +139,93 @@
     </header><!--//header-->
     
     
-    <div class="blog blog-category container">
-            <h2 class="page-title text-center"><i class="glyphicon glyphicon-camera"></i>  Analyse de la société ${entrepriseInstance.nom}</h2>
-            <div class="row">
-                <div class="blog-list blog-category-list">
-                    <article class="post col-md-10 col-sm-12 col-xs-12 col-md-offset-1 col-sm-offset-0 col-xs-offset-0">
-                        <div class="post-inner">
-                            <figure class="post-thumb">
-                                <a href="blog-single.html"><img class="img-responsive" src="${request.contextPath}/assets/images/blog/Fournisseurs.jpg" alt="" /></a>                                
-                            </figure><!--//post-thumb-->
-                            <div class="content">
-                                <h3 class="post-title"><a href="blog-single.html">Votre société vue par vos clients : </a></h3>
-                                <div class="meta">
-                                    <ul class="meta-list list-inline">                                       
-                                    	<li class="post-time">Dernier exercice : </li>
-                                    	<li class="post-author"> by <a href="/cash/"> Alloratio</a></li>
-                                    	<li class="post-comments-link">
-                                	        <a href="blog-single.html#comment-area"><i class="fa fa-comments"></i> 0 </a>
-                                	    </li>
-                                	</ul><!--//meta-list-->                           	
-                                </div><!--meta-->
-                                <div class="post-entry">
-                                    <p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In ac dui quis mi consectetuer lacinia. Nam pretium turpis et arcu. Duis arcu tortor, suscipit eget, imperdiet nec, imperdiet iaculis, ipsum. Sed aliquam ultrices mauris. Integer ante arcu, accumsan a, consectetuer eget, posuere ut, mauris. Praesent adipiscing. </p>
-                                    <a class="read-more" href="blog-single.html">Read more <i class="fa fa-long-arrow-right"></i></a>
-                                </div>                                
-                            </div><!--//content-->
-                        </div><!--//post-inner-->
-                    </article><!--//post-->
-                    
-                    <article class="post col-md-10 col-sm-12 col-xs-12 col-md-offset-1 col-sm-offset-0 col-xs-offset-0">
-                        <div class="post-inner">
-                            <figure class="post-thumb">
-                                <a href="blog-single.html"><img class="img-responsive" src="assets/images/blog/post-6.jpg" alt="" /></a>                                
-                            </figure><!--//post-thumb-->
-                            <div class="content">
-                                <h3 class="post-title"><a href="blog-single.html">Etiam imperdiet imperdiet orci</a></h3>
-                                <div class="meta">
-                                    <ul class="meta-list list-inline">                                       
-                                    	<li class="post-time">24th Sep, 2014</li>
-                                    	<li class="post-author"> by <a href="#">Stella	Harper</a></li>
-                                    	<li class="post-comments-link">
-                                	        <a href="blog-single.html#comment-area"><i class="fa fa-comments"></i>8</a>
-                                	    </li>
-                                	</ul><!--//meta-list-->                           	
-                                </div><!--meta-->
-                                <div class="post-entry">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin lobortis mattis erat, dictum facilisis magna posuere ac. Curabitur consectetur magna mauris, et aliquam lectus ornare nec.</p>
-                                    <a class="read-more" href="blog-single.html">Read more <i class="fa fa-long-arrow-right"></i></a>
-                                </div>                                
-                            </div><!--//content-->
-                        </div><!--//post-inner-->
-                    </article><!--//post-->
-                    
-                    <article class="post col-md-10 col-sm-12 col-xs-12 col-md-offset-1 col-sm-offset-0 col-xs-offset-0">
-                        <div class="post-inner">
-                            <figure class="post-thumb">
-                                <a href="blog-single.html"><img class="img-responsive" src="assets/images/blog/post-9.jpg" alt="" /></a>                                
-                            </figure><!--//post-thumb-->
-                            <div class="content">
-                                <h3 class="post-title"><a href="blog-single.html">Curabitur consectetur magna mauris</a></h3>
-                                <div class="meta">
-                                    <ul class="meta-list list-inline">                                       
-                                    	<li class="post-time">18th Sep, 2014</li>
-                                    	<li class="post-author"> by <a href="#">James Lee</a></li>
-                                    	<li class="post-comments-link">
-                                	        <a href="blog-single.html#comment-area"><i class="fa fa-comments"></i>8</a>
-                                	    </li>
-                                	</ul><!--//meta-list-->                           	
-                                </div><!--meta-->
-                                <div class="post-entry">
-                                    <p>Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae.</p>
-                                    <a class="read-more" href="blog-single.html">Read more <i class="fa fa-long-arrow-right"></i></a>
-                                </div>                                
-                            </div><!--//content-->
-                        </div><!--//post-inner-->
-                    </article><!--//post-->
-                    
-                    <article class="post col-md-10 col-sm-12 col-xs-12 col-md-offset-1 col-sm-offset-0 col-xs-offset-0">
-                        <div class="post-inner">
-                            <figure class="post-thumb">
-                                <a href="blog-single.html"><img class="img-responsive" src="assets/images/blog/post-8.jpg" alt="" /></a>                                
-                            </figure><!--//post-thumb-->
-                            <div class="content">
-                                <h3 class="post-title"><a href="blog-single.html">Phasellus accumsan</a></h3>
-                                <div class="meta">
-                                    <ul class="meta-list list-inline">                                       
-                                    	<li class="post-time">12th Aug, 2014</li>
-                                    	<li class="post-author"> by <a href="#">Adam Stevens</a></li>
-                                    	<li class="post-comments-link">
-                                	        <a href="blog-single.html#comment-area"><i class="fa fa-comments"></i>8</a>
-                                	    </li>
-                                	</ul><!--//meta-list-->                           	
-                                </div><!--meta-->
-                                <div class="post-entry">
-                                    <p>Etiam imperdiet imperdiet orci. Nunc nec neque. Phasellus leo dolor, tempus non, auctor et, hendrerit quis, nisi. Curabitur ligula sapien, tincidunt non, euismod vitae, posuere imperdiet, leo. Maecenas malesuada. Praesent congue erat at massa. Sed cursus turpis vitae tortor. Donec posuere vulputate arcu. Phasellus accumsan cursus velit.</p>
-                                    <a class="read-more" href="blog-single.html">Read more <i class="fa fa-long-arrow-right"></i></a>
-                                </div>                                
-                            </div><!--//content-->
-                        </div><!--//post-inner-->
-                    </article><!--//post-->
-                    
-                    <article class="post col-md-10 col-sm-12 col-xs-12 col-md-offset-1 col-sm-offset-0 col-xs-offset-0">
-                        <div class="post-inner">
-                            <figure class="post-thumb">
-                                <a href="blog-single.html"><img class="img-responsive" src="assets/images/blog/post-7.jpg" alt="" /></a>                                
-                            </figure><!--//post-thumb-->
-                            <div class="content">
-                                <h3 class="post-title"><a href="blog-single.html">Vestibulum ante ipsum primis in faucibus</a></h3>
-                                <div class="meta">
-                                    <ul class="meta-list list-inline">                                       
-                                    	<li class="post-time">12th Aug, 2014</li>
-                                    	<li class="post-author"> by <a href="#">Adam Stevens</a></li>
-                                    	<li class="post-comments-link">
-                                	        <a href="blog-single.html#comment-area"><i class="fa fa-comments"></i>8</a>
-                                	    </li>
-                                	</ul><!--//meta-list-->                           	
-                                </div><!--meta-->
-                                <div class="post-entry">
-                                    <p>Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. Cras ultricies mi eu turpis hendrerit fringilla. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In ac dui quis mi consectetuer lacinia.</p>
-                                    <a class="read-more" href="blog-single.html">Read more <i class="fa fa-long-arrow-right"></i></a>
-                                </div>                                
-                            </div><!--//content-->
-                        </div><!--//post-inner-->
-                    </article><!--//post-->
-                                        
-                </div><!--//blog-list-->  
-            </div><!--//row-->
-            <div class="pagination-container text-center">
-                <ul class="pagination">
-                    <li class="disabled"><a href="#">&laquo;</a></li>
-                    <li class="active"><a href="#">1<span class="sr-only">(current)</span></a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">&raquo;</a></li>
-                </ul><!--//pagination-->
-            </div><!--//pagination-container-->
-        </div><!--//blog-->        
+    <div class="blog-entry-wrapper"> 
+            <!--
+            <div class="blog-headline-bg">
+            </div><!--//blog-headline-bg-->
+            <div class="blog-entry">  
+                <article class="post">
+                    <!--//blog-entry-heading-->
+                    <div class="container">
+                      <div>
+        <center> <h3 class="line-divider"> La société ${entrepriseInstance.nom} </br> vue par ses clients </h3>
+        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+        </center>
+      </div>
+                               
+    <div>
+      <div class='span12'>
+      <p align='justify'>        
+        Pour vos clients, vous êtes leurs fournisseurs. Aussi, votre capacité à rembourser vos dettes court et long terme est déterminante
+        pour eux en phase de négociations commerciales.
+        </br>
+        
+      </p>
     </div>
+    </div>
+      
+                        <div class="row">
+                          
+                          </br>
+                        <ul class="nav nav-tabs center" role="tablist">
+                          <li class="active">
+                            <a href="#general" role="tab" data-toggle="tab"  onclick="javascript:general();return false;" >Données générales</a></li>
+                          <li>
+                            <a href="#vueFournisseur" role="tab" data-toggle="tab"  onclick="javascript:vueFournisseur();return false;">Analyse vue de vos clients</a></li>
+                          <li>
+                            <a href="#financier" role="tab" data-toggle="tab" onclick="javascript:financier();return false;">Analyse d'un analyste financier</a></li>
+                          <li>
+                            <a  href="#liasse" role="tab" data-toggle="tab"  onclick="javascript:liasse();return false;"> Bilans gratuits </a>
+
+                          </li>
+                        </ul>
+                          <div class="blog-entry-content col-md-8 col-sm-10 col-xs-12 col-md-offset-2 col-sm-offset-1 col-xs-offset-0">
+                     <input type="hidden" id="entreprise" value="${entrepriseInstance.id}"> 
+                                <div class='span12' >
+                                 
+                                  
+
+                              <div class="tab-content">
+                                <div class="tab-pane active" id="general">
+                                </div>
+                                <script type="text/javascript">
+        var entreprise = $('#entreprise').val()
+        <g:remoteFunction controller="entreprise" action="general" params="\'entrepriseInstance=\'+entreprise"  update="general"/>
+      </script>
+                                <div class="tab-pane" id="vueFournisseur">
+                                  
+                                </div>
+                                <div class="tab-pane" id="financier">
+                                  
+                                </div>
+                                <div class="tab-pane" id="liasse">
+                                </div>
+                              </div>
+                                </div>
+                        </div><!--//row-->
+                        
+                    <script>
+                      var entreprise = $('#entreprise').val();
+                      function liasse() {
+                    <g:remoteFunction controller="entreprise" action="liasse" params="\'entrepriseInstance=\'+entreprise" update="liasse"/>
+                              }
+                      function financier() {
+                    <g:remoteFunction controller="entreprise" action="financier" params="\'entrepriseInstance=\'+entreprise" update="financier"/>
+                              }
+                      function vueFournisseur() {
+                    <g:remoteFunction controller="entreprise" action="vueFournisseur" params="\'entrepriseInstance=\'+entreprise" update="vueFournisseur"/>
+                              }
+                      function general() {
+                    <g:remoteFunction controller="entreprise" action="general" params="\'entrepriseInstance=\'+entreprise" update="general"/>
+                              }
+                              
+                  </script>
+                        
+                        
+                </article><!--//post-->                                      
+            </div><!--//blog-entry-->
+        </div><!--//blog-entry-wrapper-->  
+    </div><!--//wrapper-->
     
     <!-- ******FOOTER****** --> 
     <footer class="footer">
@@ -295,6 +307,8 @@
     
                     
     <!-- Javascript -->          
+    
+    <script src="${request.contextPath}/js/amchart/raphael.2.1.0.min.js"></script>
     <script type="text/javascript" src="${request.contextPath}/assets/plugins/jquery-1.11.1.min.js"></script>
     <script type="text/javascript" src="${request.contextPath}/assets/plugins/jquery-migrate-1.2.1.min.js"></script>
     <script type="text/javascript" src="${request.contextPath}/assets/plugins/bootstrap/js/bootstrap.min.js"></script> 
@@ -303,16 +317,13 @@
     <script type="text/javascript" src="${request.contextPath}/assets/plugins/jquery-placeholder/jquery.placeholder.js"></script>
     <script type="text/javascript" src="${request.contextPath}/assets/plugins/FitVids/jquery.fitvids.js"></script>
     <script type="text/javascript" src="${request.contextPath}/assets/plugins/flexslider/jquery.flexslider-min.js"></script>     
-    <script type="text/javascript" src="${request.contextPath}/assets/js/main.js"></script>
-    <script type="text/javascript" src="${request.contextPath}/js/amchart/amcharts.js"></script>
-    <script type="text/javascript" src="${request.contextPath}/js/amchart/serial.js"></script>
-    <script type="text/javascript" src="${request.contextPath}/js/amchart/radar.js"></script>
-    <script type="text/javascript" src="${request.contextPath}/js/amchart/gauge.js"></script>
-    <script type="text/javascript" src="${request.contextPath}/js/amchart/themes/light.js"></script>
-    <script type="text/javascript" src="${request.contextPath}/js/amchart/morris.min.js"></script>
-    <script type="text/javascript" src="${request.contextPath}/js/amchart/morris-chart-settings.js"></script>
+    <script type="text/javascript" src="${request.contextPath}/assets/js/main.js"></script>   
     
-            
+    
+
+
+
+
 </body>
 </html> 
 

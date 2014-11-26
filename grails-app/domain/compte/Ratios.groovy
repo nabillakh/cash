@@ -2,43 +2,43 @@ package compte
 
 class Ratios {
 
-    Float rendementCapitauxPropres //    Rend. des capitaux propres nets (%)
-    Float rendementCapitalInvesti //    Rend. du capital investi (%)
+    String rendementCapitauxPropres //    Rend. des capitaux propres nets (%)
+    String rendementCapitalInvesti //    Rend. du capital investi (%)
 
-    Float retourSurActif //    Retour sur total de l'actif (%)
-    Float roce //    ROCE à partir du revenu net (%)
+    String retourSurActif //    Retour sur total de l'actif (%)
+    String roce //    ROCE à partir du revenu net (%)
 
-    Float performance //    Performance (%)
-    Float margeCommercialeBrute //    Taux de marge commerciale brute (%)
-    Float ebitda //    Marge EBITDA (%)
-    Float ebit //    Marge EBIT (%)
-    Float cafSurCa //    Capacité d'autofinancement / Chiffre d'affaires (%)
-
-
+    String performance //    Performance (%)
+    String margeCommercialeBrute //    Taux de marge commerciale brute (%)
+    String ebitda //    Marge EBITDA (%)
+    String ebit //    Marge EBIT (%)
+    String cafSurCa //    Capacité d'autofinancement / Chiffre d'affaires (%)
 
 
-    Float caSurActif //    Chiffre d'affaires de l'actif net (x)
-    Float garantieTaux //    Garantie des taux (x)
-    Float rotationStock //    Rotation des stocks (x)
-    Float creditClient //    Crédit clients (J)
-    Float creditForunisseur //    Crédit fournisseurs (J)
-    Float chiffreAffairesExport //    CA à l'export / Produit d'exploitation (%)
-    Float depenseRDSurExploitation //    Dépenses de R&D / Produit d'exploitation (%)
 
 
-    Float liquiditeReduite //    Liquidité reduite (x)
-    Float liquidite //    Ratio de liquidité (x)
-    Float liquiditeActionnaires //    Ratio de liquidité des actionnaires (x)
-    Float solvabiliteSurActif //    Ratio de solvabilité (à partir de l'actif) (%)
-    Float solvabiliteSurPassif //    Ratio de solvabilité (à partir du passif) (%)
-    Float coefficientEndettement //    Coefficient d'endettement (%)
+    String caSurActif //    Chiffre d'affaires de l'actif net (x)
+    String garantieTaux //    Garantie des taux (x)
+    String rotationStock //    Rotation des stocks (x)
+    String creditClient //    Crédit clients (J)
+    String creditForunisseur //    Crédit fournisseurs (J)
+    String chiffreAffairesExport //    CA à l'export / Produit d'exploitation (%)
+    String depenseRDSurExploitation //    Dépenses de R&D / Produit d'exploitation (%)
 
 
-    Float resultatParEffectif //    Bénéfice par employé (th USD)
-    Float caParEmploye //    Chiffre d'affaires par employé (mil) (th USD)
-    Float masseSalarialeSurCA //    Masse salariale / Produit d'exploitation (%)
-    Float etp //    Moyenne de la masse salariale (K) (th USD)
-    Float capitalParEmploye //    Capitaux propres par employés (K) (th USD)
+    String liquiditeReduite //    Liquidité reduite (x)
+    String liquidite //    Ratio de liquidité (x)
+    String liquiditeActionnaires //    Ratio de liquidité des actionnaires (x)
+    String solvabiliteSurActif //    Ratio de solvabilité (à partir de l'actif) (%)
+    String solvabiliteSurPassif //    Ratio de solvabilité (à partir du passif) (%)
+    String coefficientEndettement //    Coefficient d'endettement (%)
+
+
+    String resultatParEffectif //    Bénéfice par employé (th USD)
+    String caParEmploye //    Chiffre d'affaires par employé (mil) (th USD)
+    String masseSalarialeSurCA //    Masse salariale / Produit d'exploitation (%)
+    String etp //    Moyenne de la masse salariale (K) (th USD)
+    String capitalParEmploye //    Capitaux propres par employés (K) (th USD)
 
 
 

@@ -1,0 +1,83 @@
+
+	/* ---------------------------------------------------------------------- */
+	/*	Aside number stats 
+	/* ---------------------------------------------------------------------- */	
+	
+	.number-stats ul {
+		list-style:none;
+		margin:0;
+		padding:0;
+	}
+	.number-stats ul li {
+		text-align: center;
+		width: 43px;
+		padding: 0 12px;
+		color: #929090;
+		font-weight: bold;
+		font-size: 18px;
+		border-left: 1px solid #5E5E5E;
+		/* text-shadow: 0px 1px 0px black; */
+		list-style: none;
+		display: inline-block;
+	}
+
+	
+	.number-stats ul li span {
+		display: block;
+		color: #929090;
+		font-size: 12px;
+		font-weight:normal;
+	}
+	.number-stats ul li:last-child {
+		border-right: none;
+	}
+	.number-stats ul li:first-child {
+		border-left:none;
+	}
+
+/* divider */
+	
+	aside > .divider {
+		height:11px;
+		width:100%;
+		background: url('/images/divider/divider_11x714.png') no-repeat center 0;
+		position:relative;
+		margin:20px 0;
+	}
+        
+        
+        
+/*! Light */
+#light {
+    background-color: #000;
+    box-shadow: 0 0 5px rgba(0,0,0, .8);
+    overflow: hidden;
+    padding: 0 0 4px;
+    width: 40px;
+}
+
+#light span {
+    border-radius: 50px;
+    display: block;
+    height: 30px;
+    margin: 4px auto 0;
+    opacity: .5;
+    width: 30px;
+}
+
+/*! Light colours */
+#red    { background-color: red; }
+#orange { background-color: orange; }
+#green  { background-color: green; }
+
+/*! Active states */
+#light span.active    { opacity: 1; }
+#light #red.active    { box-shadow: 0 0 10px red; }
+#light #orange.active { box-shadow: 0 0 10px orange; }
+#light #green.active  { box-shadow: 0 0 10px green; }
+
+/*! Toggle button */
+button {
+    margin-top: 10px;
+}
+	

@@ -2,7 +2,7 @@ package compte
 
 import entreprises.*
 
-class Liasse {
+class Liasse implements Comparable{
 
     Float annee
     Entreprise entreprise
@@ -10,7 +10,18 @@ class Liasse {
     BilanSimplifie bilan
     ChiffreCle chiffresCles
     Ratios ratio
+    Cres cres
     
     static constraints = {
+        bilan nullable : true
+        chiffresCles nullable : true
+        ratio nullable : true
+        cres nullable : true
+        
     }
+    
+    
+    int compareTo(obj) {
+       annee.compareTo(obj.annee)
+   }
 }
