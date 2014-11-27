@@ -158,15 +158,31 @@ class EntrepriseController {
     }
         
     def general() {
-        println("dans general")
+        
         def entrepriseInstance = Entreprise.get(Long.parseLong(params.entrepriseInstance))
-        println(entrepriseInstance)
         def nbliasse = entrepriseInstance.mesLiasses.size()
-        def liasseInstance = entrepriseInstance.mesLiasses.getAt(nbliasse-1)
+        def liasseInstance = entrepriseInstance.mesLiasses.getAt(0)
+        def liasseInstance2 = entrepriseInstance.mesLiasses.getAt(1)
+        
+        
+        def reponse = new LinkedHashMap()
+        reponse.put("nom",entrepriseInstance.nom)
+        reponse.put("siren",entrepriseInstance.siren)
+        reponse.put("chiffreAffaires", Math.round(Double.valueOf((liasseInstance.cres.chiffreAffaires)).longValue() / 1000))
+        def ca1 = Double.valueOf((liasseInstance.cres.chiffreAffaires)).longValue()
+        def ca2 = Double.valueOf((liasseInstance2.cres.chiffreAffaires)).longValue()
+        def ca3 = ca1 - ca2
+        def evol = ca3 / ca2 *100
+        println(evol)
+        println(ca1)
+        println(ca2)
+        reponse.put("evolCa", Math.round( evol))
+        reponse.put("capital",Math.round(Double.valueOf(liasseInstance.bilan.capital).longValue() / 1000))
+        reponse.put("resultatNet",Math.round(Double.valueOf(liasseInstance.cres.resultat).longValue() / 1000))
         
         println("dans ganeral" + liasseInstance.annee)
         
-        [entrepriseInstance : entrepriseInstance, liasseInstance : liasseInstance]
+        [entrepriseInstance : entrepriseInstance, reponse : reponse]
     }
     
     def financier() {

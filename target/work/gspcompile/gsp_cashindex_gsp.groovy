@@ -34,7 +34,7 @@ invokeTag('captureMeta','sitemesh',13,['gsp_sm_xmlClosingForEmptyTag':(""),'name
 printHtmlPart(1)
 invokeTag('captureMeta','sitemesh',14,['gsp_sm_xmlClosingForEmptyTag':(""),'name':("author"),'content':("Nabil Lakhmissi")],-1)
 printHtmlPart(4)
-expressionOut.print(request.contextPath)
+invokeTag('captureMeta','sitemesh',15,['gsp_sm_xmlClosingForEmptyTag':(""),'name':("Content-Langage"),'content':("FR")],-1)
 printHtmlPart(5)
 expressionOut.print(request.contextPath)
 printHtmlPart(6)
@@ -44,20 +44,20 @@ expressionOut.print(request.contextPath)
 printHtmlPart(8)
 expressionOut.print(request.contextPath)
 printHtmlPart(9)
-})
-invokeTag('captureHead','sitemesh',37,[:],1)
-printHtmlPart(10)
-createTagBody(1, {->
-printHtmlPart(11)
-invokeTag('remoteFunction','g',133,['controller':("prospect"),'action':("envoyer"),'params':("\'mail=\' + mail+ '&message=\' + message")],-1)
-printHtmlPart(12)
-invokeTag('remoteFunction','g',171,['controller':("prospect"),'action':("envoyer"),'params':("\'mail=\' + mail+ '&message=\' + message")],-1)
-printHtmlPart(13)
-invokeTag('remoteFunction','g',177,['controller':("prospect"),'action':("evaluationAfaire"),'params':("\'mail=\' + mail+ '&societe=\' + societe+ '&siren=\' + siren")],-1)
-printHtmlPart(14)
-invokeTag('remoteFunction','g',182,['controller':("prospect"),'action':("envoyer"),'params':("\'mail=\' + mail+ '&message=\' + message")],-1)
-printHtmlPart(15)
 expressionOut.print(request.contextPath)
+printHtmlPart(10)
+})
+invokeTag('captureHead','sitemesh',39,[:],1)
+printHtmlPart(11)
+createTagBody(1, {->
+printHtmlPart(12)
+invokeTag('remoteFunction','g',135,['controller':("prospect"),'action':("envoyer"),'params':("\'mail=\' + mail+ '&message=\' + message")],-1)
+printHtmlPart(13)
+invokeTag('remoteFunction','g',173,['controller':("prospect"),'action':("envoyer"),'params':("\'mail=\' + mail+ '&message=\' + message")],-1)
+printHtmlPart(14)
+invokeTag('remoteFunction','g',179,['controller':("prospect"),'action':("evaluationAfaire"),'params':("\'mail=\' + mail+ '&societe=\' + societe+ '&siren=\' + siren")],-1)
+printHtmlPart(15)
+invokeTag('remoteFunction','g',184,['controller':("prospect"),'action':("envoyer"),'params':("\'mail=\' + mail+ '&message=\' + message")],-1)
 printHtmlPart(16)
 expressionOut.print(request.contextPath)
 printHtmlPart(17)
@@ -89,16 +89,18 @@ expressionOut.print(request.contextPath)
 printHtmlPart(30)
 expressionOut.print(request.contextPath)
 printHtmlPart(31)
-})
-invokeTag('captureBody','sitemesh',478,['class':("home-page")],1)
+expressionOut.print(request.contextPath)
 printHtmlPart(32)
+})
+invokeTag('captureBody','sitemesh',489,['class':("home-page")],1)
+printHtmlPart(33)
 }
 public static final Map JSP_TAGS = new HashMap()
 protected void init() {
 	this.jspTags = JSP_TAGS
 }
 public static final String CONTENT_TYPE = 'text/html;charset=UTF-8'
-public static final long LAST_MODIFIED = 1416926683895L
+public static final long LAST_MODIFIED = 1416949709931L
 public static final String EXPRESSION_CODEC = 'html'
 public static final String STATIC_CODEC = 'none'
 public static final String OUT_CODEC = 'html'

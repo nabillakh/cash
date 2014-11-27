@@ -13,10 +13,10 @@
 <td colspan="2" class="info">Carte d'identité</td>
 </tr>
 <tr>
-<td class="ligne1">Nom société :</td><td align="right" class="ligne2">${liasseInstance.entreprise.nom};</td>
+<td class="ligne1">Nom société :</td><td align="right" class="ligne2">${reponse.nom}</td>
 </tr>
 <tr>
-<td class="ligne1">Numéro SIREN : </td><td align="right" class="ligne2">${liasseInstance.entreprise.siren};</td>
+<td class="ligne1">Numéro SIREN : </td><td align="right" class="ligne2">${reponse.siren}</td>
 </tr>
 <tr>
 <td class="ligne1 bold">Secteur principal :</td><td align="right" class="ligne1 bold">///</td>
@@ -28,10 +28,10 @@
 <td colspan="2" class="info">Synthèse : </td>
 </tr>
 <tr>
-<td class="ligne1">Capitaux propres</td><td align="right" class="ligne2">${((liasseInstance.bilan.capital))} €</td>
+<td class="ligne1">Capitaux propres</td><td align="right" class="ligne2">${} €</td>
 </tr>
 <tr>
-<td class="ligne1">Autres fonds propres</td><td align="right" class="ligne2">${((liasseInstance.bilan.autresCapitauxPropres))} €</td>
+<td class="ligne1">Autres fonds propres</td><td align="right" class="ligne2">${} €</td>
 </tr>
 <tr>
 <td class="ligne1">Provisions pour risques et charges</td><td align="right" class="ligne2">0 K&euro;</td>
@@ -49,16 +49,16 @@
 <td colspan="2"  class="info">Chiffres clés</td>
 </tr>
 <tr>
-<td class="ligne1">Chiffre d'affaires</td><td align="right" class="ligne2">488 K&euro;</td>
+<td class="ligne1">Chiffre d'affaires</td><td align="right" class="ligne2">${reponse.chiffreAffaires} k€</td>
 </tr>
 <tr>
-<td class="ligne1">Taux de croissance</td><td align="right" class="ligne2">492 K&euro;</td>
+<td class="ligne1">Taux de croissance</td><td align="right" class="ligne2">${reponse.evolCa} %</td>
 </tr>
 <tr>
-<td class="ligne1">Capital</td><td align="right" class="ligne2">-15 K&euro;</td>
+<td class="ligne1">Capital</td><td align="right" class="ligne2">${reponse.capital} k€</td>
 </tr>
 <tr>
-<td class="ligne1">Résultat net</td><td align="right" class="ligne2">-35 K&euro;</td>
+<td class="ligne1">Résultat net</td><td align="right" class="ligne2">${reponse.resultatNet} k€</td>
 </tr>
 <tr>
 <td height="5"></td>

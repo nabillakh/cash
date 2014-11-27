@@ -54,11 +54,7 @@ class PointDeVueService {
                 if( indicateur <solvabilite) {
                         solvabilite = indicateur
                 }
-                capitauxPropres.add(liasse.bilan.capital + liasse.bilan.autresCapitauxPropres)
-                actifs.add(liasse.bilan.stock +
-                            liasse.bilan.creances +
-                            liasse.bilan.autresActifsCirculants +
-                            liasse.bilan.valeursDisponibles)
+                
                 
             }
             
@@ -68,7 +64,7 @@ class PointDeVueService {
         def score = solvabilite
         if(solvabilite < 30) {
             risqueSolvabilite = "FORT"
-            reponseSolvabilite = "La société "+ entreprise.nom +" est endettée. Elle a des difficultés pour financer sa dette. Il convient de définir les actions à mettre en œuvre et de suivre l'évolution de la situation."
+            reponseSolvabilite = entreprise.nom +" est endettée. Elle a des difficultés pour financer sa dette. Il convient de définir les actions à mettre en œuvre et de suivre l'évolution de la situation."
         }
         else {
             if(solvabilite < 50) {
@@ -351,13 +347,13 @@ class PointDeVueService {
             //on ne prend que les 3 derniers exercices.
             if(i<4) {
                 
-                    
+                    if(!liasse.ratio.rendementCapitauxPropres == "n.s."){
                 def indicateur = Math.round(Float.parseFloat(liasse.ratio.rendementCapitauxPropres) * 100)/100
                 println(annee + " : " + liasse.ratio.rendementCapitauxPropres)
                 if( indicateur <rendementCapitauxPropres) {
                         rendementCapitauxPropres = indicateur
                         annee = liasse.annee
-                }                              
+                }           }                   
             }
             
         }

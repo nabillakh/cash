@@ -22,6 +22,6 @@ class Liasse implements Comparable{
     
     
     int compareTo(obj) {
-       annee.compareTo(obj.annee)
+       obj.annee.compareTo(annee)
    }
 }
