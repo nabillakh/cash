@@ -13,6 +13,8 @@ import org.codehaus.groovy.grails.web.json.JSONObject
 import grails.converters.JSON
 
 import entreprises.*
+
+import cash.*
 import compte.*
 
 class AdminController {
@@ -377,4 +379,31 @@ class AdminController {
         
         
      } 
+     
+    def tresorerieService
+    def analyseFinanciereService
+    
+    def genererRapportTresorerie() {
+        println("dans graphique")
+        def entrepriseInstance = Entreprise.get(1)
+        
+        
+        def liasse = (entrepriseInstance.mesLiasses.getAt(0)) 
+        def liasse2 = (entrepriseInstance.mesLiasses.getAt(1)) 
+        
+        def liasses = entrepriseInstance.mesLiasses
+        def themes = []
+        def theme = new LinkedHashMap()
+        theme.put("annee",liasse.annee)
+        theme.put("nom" , "Tresorerie")
+        theme.put("force" , "")
+        theme.put("faiblesse" , "")
+        theme.put("menace" , "")
+        theme.put("opportunité" , "")
+        theme.put("reponse" , tresorerieService.analyseTresorerie(liasse,liasse2))
+        themes << theme
+        
+        [themes : themes]
+        render themes as JSON
+    }
 }

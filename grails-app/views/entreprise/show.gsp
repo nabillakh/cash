@@ -22,21 +22,14 @@
     <link rel="stylesheet" href="${request.contextPath}/assets/plugins/flexslider/flexslider.css">
     <!-- Theme CSS -->
     <link id="theme-style" rel="stylesheet" href="${request.contextPath}/assets/css/styles.css">
-    <link  rel="stylesheet" href="${request.contextPath}/css/rateit.css" type="text/css">
-    
-    <link rel="stylesheet" href="http://cdn.oesmith.co.uk/morris-0.5.1.css">
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
-    
+        
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-  <script type="text/javascript" src="${request.contextPath}/template/assets/js/jquery-ias.min.js"></script>
-  
-            <script type="text/javascript" src="http://www.amcharts.com/lib/3/amcharts.js"></script>
-<script type="text/javascript" src="http://www.amcharts.com/lib/3/gauge.js"></script>
+    <script type="text/javascript" src="${request.contextPath}/template/assets/js/jquery-ias.min.js"></script>
+    
+
+    <script type="text/javascript" src="http://www.amcharts.com/lib/3/amcharts.js"></script>
+<script type="text/javascript" src="http://www.amcharts.com/lib/3/serial.js"></script>
 <script type="text/javascript" src="http://www.amcharts.com/lib/3/themes/none.js"></script>
-<script type="text/javascript" src="http://www.amcharts.com/lib/3/radar.js"></script>
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -45,9 +38,24 @@
     <![endif]-->
     
                               <style>
-                              #chartdiv {
-	width	: 100%;
-	height	: 500px;
+                              #tresor {
+	width	: 50%;
+	height	: 100px;
+}		
+#frSurBfr {
+	width	: 50%;
+	height	: 200px;
+}		
+
+#bfrSurCa {
+	width	: 50%;
+	height	: 200px;
+}		
+
+
+#chart5 {
+	width	: 50%;
+	height	: 200px;
 }		
 
 .bs-callout {
@@ -107,6 +115,11 @@
     color: #5bc0de;
 }
 
+  #tresor {
+	width		: 100%;
+	height		: 250px;
+	font-size	: 11px;
+}	
 
                               </style>
 </head> 
@@ -167,7 +180,6 @@
       </p>
     </div>
     </div>
-      
                         <div class="row">
                           
                           </br>
@@ -179,6 +191,8 @@
                           <li>
                             <a href="#financier" role="tab" data-toggle="tab" onclick="javascript:financier();return false;">Analyse d'un analyste financier</a></li>
                           <li>
+                            <a href="#analyseFi" role="tab" data-toggle="tab" onclick="javascript:analyseFi();return false;">Analyse de votre trésorerie</a></li>
+                          <li>
                             <a  href="#liasse" role="tab" data-toggle="tab"  onclick="javascript:liasse();return false;"> Bilans gratuits </a>
 
                           </li>
@@ -187,7 +201,7 @@
                      <input type="hidden" id="entreprise" value="${entrepriseInstance.id}"> 
                                 <div class='span12' >
                                  
-                                  
+                             
 
                               <div class="tab-content">
                                 <div class="tab-pane active" id="general">
@@ -201,6 +215,9 @@
                                 </div>
                                 <div class="tab-pane" id="financier">
                                   
+                                </div>
+                                <div class="tab-pane" id="analyseFi">
+                                 
                                 </div>
                                 <div class="tab-pane" id="liasse">
                                 </div>
@@ -222,7 +239,11 @@
                       function general() {
                     <g:remoteFunction controller="entreprise" action="general" params="\'entrepriseInstance=\'+entreprise" update="general"/>
                               }
+                      function analyseFi() {
+                    <g:remoteFunction controller="entreprise" action="analyseFi" params="\'entrepriseInstance=\'+entreprise" update="analyseFi"/>
+                              }
                               
+                     
                   </script>
                         
                         
@@ -292,23 +313,6 @@
         </div><!--//bottom-bar-->
     </footer><!--//footer-->
     
-    <!-- Video Modal -->
-    <div class="modal modal-video" id="modal-video" tabindex="-1" role="dialog" aria-labelledby="videoModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 id="videoModalLabel" class="modal-title sr-only">Video Tour</h4>
-                </div>
-                <div class="modal-body">
-                    <div class="video-container">
-                        <iframe src="//player.vimeo.com/video/28872840?color=ffffff&amp;wmode=transparent" width="720" height="405" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-                    </div><!--//video-container-->
-                </div><!--//modal-body-->
-            </div><!--//modal-content-->
-        </div><!--//modal-dialog-->
-    </div><!--//modal-->
-    
                     
     <!-- Javascript -->          
     
@@ -321,7 +325,10 @@
     <script type="text/javascript" src="${request.contextPath}/assets/plugins/jquery-placeholder/jquery.placeholder.js"></script>
     <script type="text/javascript" src="${request.contextPath}/assets/plugins/FitVids/jquery.fitvids.js"></script>
     <script type="text/javascript" src="${request.contextPath}/assets/plugins/flexslider/jquery.flexslider-min.js"></script>     
-    <script type="text/javascript" src="${request.contextPath}/assets/js/main.js"></script>   
+    <script type="text/javascript" src="${request.contextPath}/assets/js/main.js"></script>
+    
+    
+    <script src="${request.contextPath}/js/amchart/raphael.2.1.0.min.js"></script>
     
     
 

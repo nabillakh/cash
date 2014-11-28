@@ -7,11 +7,15 @@ import grails.transaction.Transactional
 import grails.converters.JSON
 
 import cash.*
+import cash.AnalyseFinanciereService
+import compte.*
 
 @Transactional(readOnly = true)
 class EntrepriseController {
 
     def pointDeVueService
+    def analyseFinanciereService
+    def tresorerieService
     
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
@@ -131,6 +135,50 @@ class EntrepriseController {
         // render liste2 as JSON
     }
     
+    def analyseFi() {
+        def entrepriseInstance = Entreprise.get(Long.parseLong(params.entrepriseInstance))
+        [entrepriseInstance : entrepriseInstance]
+        
+    }
+    def graphiques() {
+        println("dans graphique")
+        def entrepriseInstance = Entreprise.get(1)
+        def graphiques =[]
+        
+        def liasses = entrepriseInstance.mesLiasses
+        for(int i = Math.min(liasses.size() - 1 , 2); -1 < i ; i-- ) {
+            
+            def liasse = (liasses.getAt(i)) 
+            def analyseTresorerie = tresorerieService.analyseTresorerie(liasse)
+            def graphique = new LinkedHashMap()
+            graphique.put("annee",liasse.annee)
+            def fondDeRoulement = analyseFinanciereService.fondDeRoulement(liasse)
+            graphique.put("fondDeRoulement",fondDeRoulement)
+            def bFR = analyseFinanciereService.bFR(liasse)
+            graphique.put("bFR",bFR)
+            def tresorerieNette = analyseFinanciereService.tresorerieNette(liasse)
+            def tresorerieNetteN1 = analyseFinanciereService.tresorerieNette(liasses.getAt(i+1))
+            graphique.put("tresorerieNette",tresorerieNette)
+            graphique.put("deltaTresorerieNette",tresorerieNette - tresorerieNetteN1)
+            graphique.put("frSurBfr", Math.round(fondDeRoulement / bFR *100))
+            graphique.put("frSurBfrCible", 50)
+            def ca = Float.parseFloat(liasse.cres.chiffreAffaires)
+            graphique.put("bfrsurca", Math.round(bFR / ca * 10000) / 10)
+            def dettes = analyseFinanciereService.dettesLMT(liasse)
+            def fondsPropres = analyseFinanciereService.fondsPropres(liasse)
+            println(dettes)
+            println(fondsPropres)
+            graphique.put("autonomieFi", Math.round(dettes / fondsPropres * 10) / 10)
+                println("auto " + Math.round(dettes / fondsPropres * 10) / 10)
+            graphiques << graphique
+        }
+        
+        println(graphiques)
+        [graphiques : graphiques]
+        render graphiques as JSON
+    }
+    
+    
     def liasse() {
         def entrepriseInstance = Entreprise.get(Long.parseLong(params.entrepriseInstance))
         def annees = []
@@ -152,7 +200,6 @@ class EntrepriseController {
             }
             annee.put("liasse",liasse.id)
             annees << (annee)
-            println(annee)
         }
         [entrepriseInstance : entrepriseInstance, annees : annees]
     }
@@ -173,14 +220,10 @@ class EntrepriseController {
         def ca2 = Double.valueOf((liasseInstance2.cres.chiffreAffaires)).longValue()
         def ca3 = ca1 - ca2
         def evol = ca3 / ca2 *100
-        println(evol)
-        println(ca1)
-        println(ca2)
         reponse.put("evolCa", Math.round( evol))
         reponse.put("capital",Math.round(Double.valueOf(liasseInstance.bilan.capital).longValue() / 1000))
         reponse.put("resultatNet",Math.round(Double.valueOf(liasseInstance.cres.resultat).longValue() / 1000))
         
-        println("dans ganeral" + liasseInstance.annee)
         
         [entrepriseInstance : entrepriseInstance, reponse : reponse]
     }
@@ -203,7 +246,6 @@ class EntrepriseController {
         liste << liquidite
         liste << creditClient
         
-        println(liste)
         [entrepriseInstance : entrepriseInstance, liste : liste]
         // render liste2 as JSON
             
