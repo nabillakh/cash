@@ -43,7 +43,7 @@
     <header id="header" class="header">  
         <div class="container">       
             <h1 class="logo">
-                <a href=""><span class="text">Alloratio</span></a>
+                <a href="${request.contextPath}/"><span class="text">Alloratio</span></a>
             </h1><!--//logo-->
             <nav class="main-nav navbar-right" role="navigation">
                 <div class="navbar-header">
@@ -98,10 +98,10 @@
             Vos partenaires financiers (banques, assureurs, clients, fournisseurs...) évaluent vos risques de trésorerie, et vous?
           <!--  <p><button type="button" class="btn btn-cta-primary" data-toggle="modal" data-target="#formContact" data-whatever="twbootstrap">Essayez nous !</button></p> -->
             <p><button type="button" class="btn btn-cta-primary" data-toggle="modal" data-target="#analyseEntreprise" data-whatever="twbootstrap"> Evaluez votre entreprise gratuitement!</button></p> 
-            </br>
-          <!--    <q>Profits are vanity but cash is reality</q>
-           <a class="btn-link " href="#jeu" data-backdrop="static" data-keyboard="false"><i class="glyphicon glyphicon-th"></i> Testez vos connaissances ! </a>
-          <button type="button" class="play-trigger btn-link " data-toggle="modal" data-target="#modal-video" data-backdrop="static" data-keyboard="false"><i class="fa fa-youtube-play"></i> Watch the video</button>-->
+            
+          <!--    <q>Profits are vanity but cash is reality</q> -->
+           <a class="btn-link " href="${request.contextPath}/emprunt/create" data-backdrop="static" data-keyboard="false"><i class="glyphicon glyphicon-th"></i> Accédez à notre simulateur de crédits ! </a>
+           <!-- <button type="button" class="play-trigger btn-link " data-toggle="modal" data-target="#modal-video" data-backdrop="static" data-keyboard="false"><i class="fa fa-youtube-play"></i> Watch the video</button>-->
         </div><!--//container-->
     </section><!--//promo-->
     <div class="modal fade" id="formContact" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -143,7 +143,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-        <h4 class="modal-title" id="exampleModalLabel">Découvrez ce que vos partenaires pensent de votre trésorerie.</h4>
+        <h4 class="modal-title" id="exampleModalLabel">Nous effectuons gratuitement pour vous une analyse de votre trésorerie. Pour cela, veuillez remplir ce formulaire.</h4>
       </div>
       <div class="modal-body">
         <form role="form">
@@ -182,6 +182,15 @@
         var mail = $('#mail3').val()
         var message = "Nouvelle adresse mail"
        <g:remoteFunction controller = "prospect" action="envoyer" params="\'mail=\' + mail+ '&message=\' + message"/>
+        
+      }
+
+
+
+      function adresseMailSimulateur() {
+        var mail = $('#mail3').val();
+        var message = "inscription via simulateur";
+       <g:remoteFunction controller = "prospect" action="envoyer" params="\'mail=\' + mail+ '&message=\' + message"/>;
         
       }
         </script>
@@ -227,8 +236,7 @@
                         <h3 class="title">Anticipation</h3>
                         <div class="desc">
                             <p align="justify">Nous préparons et anticipons à vos côtés vos besoins de financement. Développer votre EBE 
-                            de demain en sécurisant aujourd'hui votre trésorerie.</p>
-                            
+                            de demain en sécurisant aujourd'hui votre trésorerie.</p>                            
                             <p align="justify"><i class="glyphicon glyphicon-ok"></i> Objectif : solidité financière et économique</p>
                         </div>
                         <!--//quote-->                        
@@ -238,7 +246,18 @@
             </div><!--//container-->
         </section><!--//why-->  
         
-        </section><!--//why-->       
+        
+        
+        <!-- ******CTA Section****** 
+        <section id="cta-simulateur" class="section text-center well">
+            <div class="container">
+               <h2 class="title">Vous souhaitez mesurer l'impact cash de votre prochain prêt ? </h2>
+               <p class="intro"> Faîtes une simulation avec notre outil crédit </p>
+               <p><a type="button" class="btn btn-cta-primary" title ="simulateur crédit banquaire" href="${request.contextPath}/emprunt/create" data-whatever="twbootstrap">Accéder au simulateur de crédit</a></p>
+            </div><!--//container
+        </section><!--//cta-section-->
+        
+        
         <style>
           .question{
     height:100px;
@@ -249,137 +268,47 @@
     cursor: pointer;
 }
 </style>
+    </section>
+
 <!--
-        
-        <section id="jeu">
-          <div class="container">
-            </br>
-            </br>
-            </br>
-            </br><h2 class="title text-center">Jeopardy du cash management</h2>
-                <p class="intro text-center">Testez vos connaissances en gestion de trésorerie 
-                  </br> et comparez vous à vos confrères !</p>
-<div class="panel panel-default">
-	<div class="panel-heading"></div>
-	<div class="panel-body" id="main-board"></div>
-	<div class="panel-footer">
-                <div class="pull-right"><h4>Score: <span id="score">0</span></h4></div>
-                <div class="clearfix"></div>
-        </div>
-</div>
-<div class="modal fade" id="question-modal" role="dialog" aria-labelledby="question-modal" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-        <h4 class="modal-title">Modal title</h4>
-      </div>
-      <div class="modal-body">
-        <p id="question" style="font-size: 1.5em"></p>
-      </div>
-      <div class="modal-footer ">
-        <div id="answers" class="text-center">
-
-        </div>
-      </div>
-    </div><!-- /.modal-content
-  </div><!-- /.modal-dialog
-</div><!-- /.modal        
-            <script>      
-      $(function(){
-        $.ajax({//ajax method to load the board.json and call the loadBoard() function on success 
-        'async': false,
-        'global': false,
-        type:'GET',
-        dataType:'json',
-        url:'/cash/jeu/questions',
-        success:function(data){
-            map = data;
-            loadBoard();
-        }
-    });
-    
-    
-    $('.unanswered').click(function(){//event bound to clicking on a tile. it grabs the data from the click event, populates the modal, fires the modal, and binds the answer method
-     
-        var category = $(this).parent().data('category');
-        var question = $(this).data('question');
-        var value = map[category].questions[question].value;
-        var answers = $('#answers');
-        $('.modal-title').empty().text(map[category].name);
-        $('#question').empty().text(map[category].questions[question].question);
-        answers.empty();
-        $.each(map[category].questions[question].answers, function(i, answer){//loop over the answers and make buttons for each
-            answers.append(
-                '<button class="btn btn-danger answer" ' +
-                    'data-category="'+category+'"' +
-                    'data-question="'+question+'"' +
-                    'data-value="'+value+'"' +
-                    'data-correct="'+answer.correct+'"' +
-                    '>'+ answer.text+'</button><br><br>'
-            )
-        });
-        $('#question-modal').modal('show');//fire modal
-        console.log(category, question);
-        console.log(map[category].questions[question]);
-        handleAnswer(); //bind answer onclick to newly created buttons
-    });
-
-});
-var score = 0;
-var map;
-function loadBoard(){//function that turns the board.json (loaded in the the map variable) into a jeopardy board
-    var board = $('#main-board');
-    var columns = map.length;
-    var column_width = parseInt(12/columns); //get the width/12 rounded down, to use the bootstrap column width appropriate for the number of categories
-    console.log(columns);
-    $.each(map, function(i,category){
-        //load category name
-        var header_class = 'text-center col-md-' + column_width; 
-        if (i === 0 && columns % 2 != 0){ //if the number of columns is odd, offset the first one by one to center them
-
-            header_class += ' col-md-offset-1';
-        }
-        $('.panel-heading').append(
-            '<div class="'+header_class+'"><h4>'+category.name+'</h4></div>'
-        );
-        //add column
-        var div_class = 'category col-md-' + column_width;
-        if (i === 0 && columns % 2 != 0){
-            div_class += ' col-md-offset-1';
-        }
-        board.append('<div class="'+div_class+'" id="cat-'+i+'" data-category="'+i+'"></div>');
-        var column = $('#cat-'+i);
-        $.each(category.questions, function(n,question){
-            //add questions
-            column.append('<div class="well question unanswered" data-question="'+n+'">'+question.value+'</div>')
-        });
-    });
-    $('.panel-heading').append('<div class="clearfix"></div>')
-
-}
-
-function updateScore(){
-    $('#score').empty().text(score);
-}
-
-function handleAnswer(){
-    $('.answer').click(function(){// hide empty the tile, mike it unclickable, update the score if correct, and hide the modal
-        var tile= $('div[data-category="'+$(this).data('category')+'"]>[data-question="'+$(this).data('question')+'"]')[0];
-        $(tile).empty().removeClass('unanswered').unbind().css('cursor','not-allowed');
-        if ($(this).data('correct')){
-            score += parseInt($(this).data('value'));
-        }
-        $('#question-modal').modal('hide');
-        updateScore();
-    })
-}
-      </script>-->
-
-        </section>
-
-
-
+<section id="crises" name ="crises"class="section why">
+            <div class="container">
+             <h2 class="title text-center">Les crises de trésorerie</h2>
+                <p class="intro text-center">La gestion de la trésorerie est une condition fondamentale pour la pérennité d'une entreprise. 
+                          En effet, les cessations de paiement proviennent nécessairement d'une crise de trésorerie.
+                </br></br></p>
+                      
+            <div class="row-fluid">
+                    <div class="col-sm-6">
+                        <img src="assets/images/pages/features/about01.png" alt="Treble">
+                    </div>
+                    <div class="col-sm-6">
+                        <h5>Forte croissance</h5>
+                        <p class="smallFontBy08 cutBy10">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    </div></div>
+                    <div class="span2 center">
+                        <img src="assets/images/pages/features/about02.png" alt="Treble">
+                        <h5>Crise de gestion</h5>
+                        <p class="smallFontBy08 cutBy10">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    </div>
+                    <div class="span2 center">
+                        <img src="assets/images/pages/features/about03.png" alt="Treble">
+                        <h5>Baisse d'activité</h5>
+                        <p class="smallFontBy08 cutBy10">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    </div>
+                    <div class="span2 center">
+                        <img src="assets/images/pages/features/about03.png" alt="Treble">
+                        <h5>Financement des investissements</h5>
+                        <p class="smallFontBy08 cutBy10">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    </div>
+                    <div class="span2 center">
+                        <img src="assets/images/pages/features/about03.png" alt="Treble">
+                        <h5>Profitabilité</h5>
+                        <p class="smallFontBy08 cutBy10">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    </div>
+                </div>
+            </div><!--//container
+        </section>//why-->  
 
         <!-- ******CTA Section****** -->
         <section id="cta-section" class="section cta-section text-center home-cta-section">
